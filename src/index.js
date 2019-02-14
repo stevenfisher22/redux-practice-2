@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
-import App from './App';
+// import App from './App';
 
 
 // Action
@@ -14,7 +14,7 @@ const increaseAction = {
 function counter(state = {count: 0}, action) {
     switch(action.type) {
         case 'increase': 
-            return {count: count + 1}
+            return {count: state.count + 1}
         default: 
             return state
     }
@@ -49,6 +49,12 @@ class Counter extends React.Component {
     }
 }
 
+// Connect
+const App = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Counter)
+
 const store = createStore(counter)
 
 ReactDOM.render(
@@ -58,4 +64,4 @@ ReactDOM.render(
 , document.getElementById('root')
 );
 
-export default index
+
