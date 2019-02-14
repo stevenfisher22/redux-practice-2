@@ -20,6 +20,19 @@ function counter(state = {count: 0}, action) {
     }
 } 
 
+// 
+function mapDispatchToProps(dispatch) {
+    return {
+        onIncreaseClick: () => dispatch(increaseAction)
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        currentCountInStore: state.count
+    }
+}
+
 class Counter extends React.Component {
     constructor(props) {
         super(props);
@@ -29,19 +42,12 @@ class Counter extends React.Component {
     render() {
         return (
             <div>
-                
+                <span>{this.props.currentCountInStore}</span>
+                <button onClick={this.props.onIncreaseClick}>Increase</button>
             </div>
         );
     }
 }
-
-
-index.propTypes = {
-    
-};
-
-export default index
-
 
 const store = createStore(counter)
 
@@ -51,3 +57,5 @@ ReactDOM.render(
     </Provider>
 , document.getElementById('root')
 );
+
+export default index
