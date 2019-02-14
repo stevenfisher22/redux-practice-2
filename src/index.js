@@ -20,13 +20,14 @@ function counter(state = {count: 0}, action) {
     }
 } 
 
-// 
+// Map Dispatch to Props
 function mapDispatchToProps(dispatch) {
     return {
         onIncreaseClick: () => dispatch(increaseAction)
     }
 }
 
+// Map State to Props
 function mapStateToProps(state) {
     return {
         currentCountInStore: state.count
