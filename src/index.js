@@ -58,6 +58,7 @@ const App = connect(
 
 const store = createStore(counter)
 
+// Provider
 ReactDOM.render(
     <Provider store={store}>
         <App />
